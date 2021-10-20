@@ -1,18 +1,26 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <IndexPage msg="112" />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import IndexPage from '@/pages/IndexPage.vue';
 
 @Options({
   components: {
-    HelloWorld,
+    IndexPage,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  users: any;
+
+  async mounted(): Promise<void> {
+    const users = await fetch('/api/users/0').then((resp) => resp.json());
+    this.users = users;
+    console.log({ users: this.users });
+  }
+}
 </script>
 
 <style lang="scss">

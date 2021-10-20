@@ -1,0 +1,10 @@
+[
+  {
+    "login": "Admin",
+    "role": "ADMIN",
+    "first_name": "Bob",
+    "last_name": "Marley",
+    "password": "232323",
+    "sex": "MALE"
+  }
+]
