@@ -1,6 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <IndexPage msg="112" />
+  <IndexPage :title="userFullName" />
 </template>
 
 <script lang="ts">
@@ -13,12 +13,18 @@ import IndexPage from '@/pages/IndexPage.vue';
   },
 })
 export default class App extends Vue {
-  users: any;
+  user: any = null;
 
   async mounted(): Promise<void> {
-    const users = await fetch('/api/users/0').then((resp) => resp.json());
-    this.users = users;
-    console.log({ users: this.users });
+    const response = await fetch('/api/users/0').then((resp) => resp.json());
+    this.user = response.body;
+    console.log('USER 0', { user: response.body });
+  }
+
+  get userFullName() {
+    return this.user
+      ? `Default user: ${this.user.first_name} ${this.user.last_name}`
+      : ''
   }
 }
 </script>
