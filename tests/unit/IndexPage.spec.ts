@@ -7,6 +7,6 @@ describe('IndexPage.vue', () => {
     const wrapper = shallowMount(IndexPage, {
       props: { title },
     });
-    expect(wrapper.text()).toMatch('12143124sa');
+    expect(wrapper.text()).toMatch(title);
   });
 });
