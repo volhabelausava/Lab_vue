@@ -1,47 +1,26 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <IndexPage :title="userFullName" />
+  <ApiDemoPage />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import IndexPage from '@/pages/IndexPage.vue';
+import ApiDemoPage from '@/pages/ApiDemoPage.vue';
 
 @Options({
   components: {
     IndexPage,
+    ApiDemoPage
   },
 })
 export default class App extends Vue {
   user: any = null;
 
   async mounted(): Promise<void> {
-    /*  Example of user creating */
-    const userCreationResponse = await fetch('/api/users/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        login: 'NewUser',
-        role: 'USER',
-        first_name: 'Mark',
-        last_name: 'Stivenson',
-        password: '232323',
-        sex: 'MALE'
-      })
-    }).then((response) => response.json());
-    /*  Example of user editing */
-    await fetch('/api/users/update', {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: userCreationResponse.body,
-        first_name: 'Steven',
-      })
-    });
-    /*  Example of user fetching  */
-    const resp = await fetch('/api/users/2').then((response) => response.json());
-
-    this.user = resp.body || null;
+    const resp = await fetch('http://localhost:3000/users/1').then((response) => response.json());
+    this.user = resp || null;
   }
 
   get userFullName() {
