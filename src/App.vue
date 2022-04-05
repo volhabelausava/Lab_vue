@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <IndexPage :title="userFullName" />
+  <HelloPage />
   <ApiDemoPage />
 </template>
 
@@ -8,11 +9,13 @@
 import { Options, Vue } from 'vue-class-component';
 import IndexPage from '@/pages/IndexPage.vue';
 import ApiDemoPage from '@/pages/ApiDemoPage.vue';
+import HelloPage from '@/pages/HelloPage.vue';
 
 @Options({
   components: {
     IndexPage,
-    ApiDemoPage
+    ApiDemoPage,
+    HelloPage
   },
 })
 export default class App extends Vue {
