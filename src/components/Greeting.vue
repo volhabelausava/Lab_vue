@@ -8,7 +8,7 @@
 import { Prop } from 'vue-property-decorator'
 import { Vue } from 'vue-class-component';
 
-export default class IndexPage extends Vue {
+export default class Greeting extends Vue {
   @Prop(String)
   readonly title!: string;
 }

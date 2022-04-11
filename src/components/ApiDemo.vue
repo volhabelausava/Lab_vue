@@ -38,7 +38,7 @@ interface ICategoryDemoData {
 }
 
 @Options({})
-export default class ApiDemoPage extends Vue {
+export default class ApiDemo extends Vue {
   demoCategories: ICategoryDemoData[] = [];
 
   /*  An example of how to make a request */
