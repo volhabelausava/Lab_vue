@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/pages/HomePage.vue';
 import ProductsPage from '@/pages/ProductsPage.vue';
 import AboutPage from '@/pages/AboutPage.vue';
+import NotFound from '@/pages/404.vue';
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     name: 'About',
     component: AboutPage
   },
+  // 404
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
+  }
 ];
 
 const router = createRouter({
