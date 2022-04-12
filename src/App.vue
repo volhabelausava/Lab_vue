@@ -1,9 +1,9 @@
 <template>
-  <Header/>
+  <TheHeader/>
   <main class="main">
     <router-view/>
   </main>
-  <Footer/>
+  <TheFooter/>
 </template>
 
 <script lang="ts">
