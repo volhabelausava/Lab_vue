@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import IndexPage from '@/pages/IndexPage.vue';
+import Greeting from '@/components/Greeting.vue';
 
-describe('IndexPage.vue', () => {
+describe('Greeting.vue', () => {
   it('renders msg when passed', () => {
     const title = 'new message';
-    const wrapper = shallowMount(IndexPage, {
+    const wrapper = shallowMount(Greeting, {
       props: { title },
     });
     expect(wrapper.text()).toMatch(title);
